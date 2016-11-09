@@ -7,7 +7,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/gotokatsuya/incidents/slack"
+	"github.com/gotokatsuya/incidents/util/slack"
 )
 
 var (
@@ -32,7 +32,7 @@ func postFetchedIncidentInfo(url string) {
 		}
 		fmt.Println(msg)
 		if len(slackURL) != 0 {
-			slack.Post(slack.Data{
+			slack.Post(slack.Request{
 				Text:      msg,
 				Username:  "bigquery incidents",
 				IconEmoji: ":see_no_evil:",

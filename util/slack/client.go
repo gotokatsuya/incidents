@@ -7,15 +7,15 @@ import (
 	"strings"
 )
 
-type Data struct {
+type Request struct {
 	Text      string `json:"text"`
 	Username  string `json:"username"`
 	IconEmoji string `json:"icon_emoji"`
 	Channel   string `json:"channel,omitempty"`
 }
 
-func Post(d Data, incommingWebhookURL string) error {
-	jsonBody, err := json.Marshal(d)
+func Post(r Request, incommingWebhookURL string) error {
+	jsonBody, err := json.Marshal(r)
 	if err != nil {
 		return err
 	}
